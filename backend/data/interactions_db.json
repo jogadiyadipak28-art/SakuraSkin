@@ -1,0 +1,46 @@
+{
+  "conflicts": [
+    {"pair": ["retinol", "vitamin_c"], "severity": "high", "reason": "Vitamin C (low pH ~3) destabilizes retinol (needs pH 5.5-6.5). Use Vitamin C in AM and Retinol in PM.", "suggestion": "Use Vitamin C in your morning routine and Retinol at night."},
+    {"pair": ["retinol", "benzoyl_peroxide"], "severity": "high", "reason": "Benzoyl peroxide oxidizes and deactivates retinol, making both less effective.", "suggestion": "Alternate nights: Retinol one night, Benzoyl Peroxide the next."},
+    {"pair": ["retinol", "glycolic_acid"], "severity": "high", "reason": "Both increase cell turnover aggressively. Together they can cause severe irritation, peeling, and barrier damage.", "suggestion": "Use AHA on different nights than retinol, or choose one."},
+    {"pair": ["retinol", "salicylic_acid"], "severity": "medium", "reason": "Both can be drying and irritating together, especially for sensitive skin. Some people tolerate this combo.", "suggestion": "If combining, use salicylic acid as a cleanser (wash-off) and retinol as a leave-on."},
+    {"pair": ["retinol", "lactic_acid"], "severity": "medium", "reason": "Both exfoliate — layering them can over-exfoliate and damage the skin barrier.", "suggestion": "Alternate nights or use lactic acid in AM and retinol in PM."},
+    {"pair": ["vitamin_c", "benzoyl_peroxide"], "severity": "high", "reason": "Benzoyl peroxide is a strong oxidizer that neutralizes Vitamin C (an antioxidant), canceling its benefits.", "suggestion": "Use Vitamin C in AM and Benzoyl Peroxide in PM."},
+    {"pair": ["vitamin_c", "glycolic_acid"], "severity": "medium", "reason": "Both work at low pH but layering two acids can irritate. Vitamin C can become unstable.", "suggestion": "Use on alternate mornings, or apply glycolic acid as a toner and wait 15 min before Vitamin C."},
+    {"pair": ["benzoyl_peroxide", "salicylic_acid"], "severity": "medium", "reason": "Both are potent acne treatments. Together they can excessively dry and irritate skin.", "suggestion": "Use BP in the morning and SA in the evening, or alternate days."},
+    {"pair": ["glycolic_acid", "salicylic_acid"], "severity": "medium", "reason": "Mixing AHA + BHA can over-exfoliate. However, some products are formulated with both safely.", "suggestion": "If using separately, alternate AM/PM or use on different days."},
+    {"pair": ["retinol", "kojic_acid"], "severity": "medium", "reason": "Both can cause irritation and sensitivity. The combination may overwhelm sensitive skin.", "suggestion": "Introduce one at a time. If using both, apply kojic acid in AM and retinol in PM."},
+    {"pair": ["vitamin_c", "niacinamide"], "severity": "low", "reason": "Old myth! Modern research shows these work fine together. Early studies used impure niacinamide at high heat.", "suggestion": "Safe to use together. They actually complement each other for brightening!"},
+    {"pair": ["benzoyl_peroxide", "vitamin_e"], "severity": "medium", "reason": "BP is an oxidizer; Vitamin E is an antioxidant. They can neutralize each other.", "suggestion": "Apply at different times of day."},
+    {"pair": ["retinol", "mandelic_acid"], "severity": "medium", "reason": "Both promote cell turnover. Combining may lead to excessive exfoliation.", "suggestion": "Use mandelic acid on non-retinol nights."}
+  ],
+  "synergies": [
+    {"pair": ["vitamin_c", "vitamin_e"], "benefit": "Vitamin E regenerates Vitamin C and doubles its photoprotective efficacy. The gold standard antioxidant combo.", "boost": "2x UV protection"},
+    {"pair": ["vitamin_c", "ferulic_acid"], "benefit": "Ferulic acid stabilizes Vitamin C and boosts its antioxidant power by 8x. The famous CE Ferulic formula.", "boost": "8x antioxidant power"},
+    {"pair": ["niacinamide", "hyaluronic_acid"], "benefit": "Niacinamide strengthens the barrier while HA draws in moisture. Perfect duo for plump, healthy skin.", "boost": "Enhanced hydration + barrier repair"},
+    {"pair": ["niacinamide", "zinc"], "benefit": "Both control oil and reduce inflammation. Together they're one of the best combos for oily acne-prone skin.", "boost": "Superior oil control"},
+    {"pair": ["hyaluronic_acid", "ceramides"], "benefit": "HA attracts water while ceramides lock it in. The ultimate hydration sandwich.", "boost": "Maximum moisture retention"},
+    {"pair": ["retinol", "hyaluronic_acid"], "benefit": "HA provides hydration that counteracts retinol's drying effects, making it more tolerable.", "boost": "Reduced retinol irritation"},
+    {"pair": ["retinol", "peptides"], "benefit": "Peptides boost collagen alongside retinol. Using both accelerates anti-aging results.", "boost": "Accelerated anti-aging"},
+    {"pair": ["centella", "niacinamide"], "benefit": "Both soothe inflammation. Centella heals while niacinamide strengthens — great for post-treatment recovery.", "boost": "Calming + repair"},
+    {"pair": ["azelaic_acid", "niacinamide"], "benefit": "Both fight hyperpigmentation through different mechanisms. Together, faster fade of dark spots.", "boost": "Enhanced brightening"},
+    {"pair": ["salicylic_acid", "niacinamide"], "benefit": "SA unclogs pores while niacinamide reduces oil and inflammation. Great for acne routine when layered.", "boost": "Pore clearing + oil control"},
+    {"pair": ["glycerin", "hyaluronic_acid"], "benefit": "Both humectants working at different skin layers — HA at surface, glycerin penetrates deeper.", "boost": "Multi-layer hydration"},
+    {"pair": ["alpha_arbutin", "niacinamide"], "benefit": "Both inhibit melanin through different pathways. Combined, they give faster brightening results.", "boost": "Multi-pathway brightening"},
+    {"pair": ["bakuchiol", "hyaluronic_acid"], "benefit": "Bakuchiol provides retinol-like anti-aging while HA maintains hydration. Perfect for sensitive skin anti-aging.", "boost": "Gentle anti-aging + hydration"},
+    {"pair": ["green_tea", "vitamin_c"], "benefit": "Both are powerful antioxidants that complement each other's free radical scavenging abilities.", "boost": "Comprehensive antioxidant defense"},
+    {"pair": ["panthenol", "ceramides"], "benefit": "Panthenol helps repair the skin barrier while ceramides restore its structure. Great for damaged skin.", "boost": "Maximum barrier repair"},
+    {"pair": ["tranexamic_acid", "niacinamide"], "benefit": "Both target hyperpigmentation through different mechanisms for accelerated spot fading.", "boost": "Fast dark spot correction"},
+    {"pair": ["snail_mucin", "hyaluronic_acid"], "benefit": "Snail mucin naturally contains HA plus growth factors. Layering HA underneath boosts total hydration.", "boost": "Deep hydration + repair"}
+  ],
+  "cautions": [
+    {"pair": ["vitamin_c", "salicylic_acid"], "note": "Both work at low pH. Layer carefully — apply vitamin C first, wait 15 min, then SA.", "wait_time": "15 minutes"},
+    {"pair": ["retinol", "azelaic_acid"], "note": "Can be used together but introduce gradually. Some derms recommend alternating AM/PM.", "wait_time": "none"},
+    {"pair": ["niacinamide", "glycolic_acid"], "note": "Niacinamide can flush at very low pH. Apply glycolic acid first, wait 10 min, then niacinamide.", "wait_time": "10 minutes"},
+    {"pair": ["retinol", "vitamin_e"], "note": "Generally fine together — Vitamin E can actually stabilize retinol. But patch test first.", "wait_time": "none"},
+    {"pair": ["glycolic_acid", "lactic_acid"], "note": "Both are AHAs — using two AHAs together is unnecessary and can over-exfoliate.", "wait_time": "Use one or the other"}
+  ],
+  "layering_order": [
+    "cleanser", "toner", "essence", "serum_water", "serum_oil", "eye_cream", "moisturizer", "face_oil", "sunscreen"
+  ]
+}
