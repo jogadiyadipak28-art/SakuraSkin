@@ -15,7 +15,7 @@ const CONCERNS = [
 
 const HERO_SLIDES = [
   {
-    image: '/images/model_hero_1.png',
+    image: './images/model_hero_1.png',
     subtitle: 'AI-Powered Skincare Intelligence',
     title: 'Discover Your <em>Perfect</em> Skincare',
     description: 'Five intelligent agents analyze ingredients, detect conflicts, and build routines personalized to your unique skin.',
@@ -23,7 +23,7 @@ const HERO_SLIDES = [
     ctaSecondary: { text: 'Explore Products', link: '#/products' },
   },
   {
-    image: '/images/model_hero_2.png',
+    image: './images/model_hero_2.png',
     subtitle: 'Backed by Science, Driven by AI',
     title: 'Beauty Meets <em>Intelligence</em>',
     description: 'Our multi-agent system cross-references 150+ ingredients and 30+ interaction rules to craft your ideal routine.',
@@ -31,7 +31,7 @@ const HERO_SLIDES = [
     ctaSecondary: { text: 'Learn More', link: '#/encyclopedia' },
   },
   {
-    image: '/images/model_hero_3.png',
+    image: './images/model_hero_3.png',
     subtitle: 'Smart Beauty, Real Results',
     title: 'Your Skin, <em>Elevated</em>',
     description: 'Find affordable dupes, avoid harmful combinations, and unlock the science behind every ingredient.',
@@ -42,19 +42,19 @@ const HERO_SLIDES = [
 
 const TESTIMONIALS = [
   {
-    avatar: '/images/model_hero_1.png',
+    avatar: './images/model_hero_1.png',
     name: 'Priya Sharma',
     role: 'Skincare Enthusiast',
     quote: 'SakuraSkin completely transformed my routine! The AI detected a conflict between my vitamin C and niacinamide that I never knew about. My skin has never looked better.',
   },
   {
-    avatar: '/images/model_hero_2.png',
+    avatar: './images/model_hero_2.png',
     name: 'Ananya Patel',
     role: 'Beauty Blogger',
     quote: 'The dupe finder saved me thousands of rupees! I found an affordable alternative to my expensive serum with 90% ingredient overlap. Absolute game-changer.',
   },
   {
-    avatar: '/images/model_hero_3.png',
+    avatar: './images/model_hero_3.png',
     name: 'Meera Krishnan',
     role: 'Dermatology Student',
     quote: 'As someone studying skin science, I\'m impressed by how accurately the formulation agent analyzes ingredient interactions. This is real cosmetic chemistry made accessible.',
@@ -142,7 +142,7 @@ export async function renderHome(container) {
     </div>
     <div class="model-showcase-grid">
       <div class="model-showcase rounded-2xl overflow-hidden" style="position:relative">
-        <img src="/images/model_routine.png" alt="Skincare routine" class="model-showcase-img" />
+        <img src="./images/model_routine.png" alt="Skincare routine" class="model-showcase-img" />
         <div class="floating-stat" style="top: 1.5rem; right: 1.5rem;">
           <div class="text-2xl font-bold text-botanical-600" style="font-family:var(--font-heading)">98%</div>
           <div class="text-xs text-gray-500">Accuracy Rate</div>
@@ -262,7 +262,7 @@ export async function renderHome(container) {
   beforeAfter.innerHTML = `
     <div class="model-showcase-grid" style="direction:rtl">
       <div class="model-showcase rounded-2xl overflow-hidden" style="position:relative;direction:ltr">
-        <img src="/images/model_results.png" alt="Skincare results" class="model-showcase-img" />
+        <img src="./images/model_results.png" alt="Skincare results" class="model-showcase-img" />
         <div class="floating-stat" style="top: 1.5rem; left: 1.5rem;">
           <div class="text-2xl font-bold text-botanical-600" style="font-family:var(--font-heading)">150+</div>
           <div class="text-xs text-gray-500">Ingredients</div>
