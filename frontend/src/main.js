@@ -97,7 +97,8 @@ function navigate() {
   app.appendChild(renderNavbar(route));
   const main = document.createElement('main');
   main.className = 'page-enter';
-  main.style.paddingTop = '5rem';
+  const isHome = !route || route === 'home';
+  main.style.paddingTop = isHome ? '0' : '5rem';
   main.style.minHeight = '100vh';
   renderer(main);
   app.appendChild(main);

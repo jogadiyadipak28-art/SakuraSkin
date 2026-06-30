@@ -25,7 +25,7 @@ export function renderNavbar(currentRoute) {
   logo.href = '#/home';
   logo.className = 'flex items-center gap-2 text-xl font-bold no-underline';
   logo.style.fontFamily = 'var(--font-heading)';
-  logo.innerHTML = `<span class="text-2xl">🌸</span><span class="bg-gradient-to-r from-sakura-500 to-sakura-700 bg-clip-text text-transparent">SakuraSkin</span>`;
+  logo.innerHTML = `<span class="text-2xl">🌸</span><span class="bg-gradient-to-r from-sakura-500 via-sakura-600 to-botanical-600 bg-clip-text text-transparent">SakuraSkin</span>`;
   inner.appendChild(logo);
 
   // Desktop links
