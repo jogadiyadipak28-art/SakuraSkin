@@ -62,8 +62,11 @@ export function showToast(message) {
 }
 
 // ─── API Helper ──────────────────────────────────────────
+// Update this URL to your Render backend URL once it's deployed!
+export const API_BASE_URL = window.location.hostname === 'localhost' ? '' : 'https://sakuraskin-api.onrender.com';
+
 export async function api(path, options = {}) {
-  const res = await fetch(`/api${path}`, {
+  const res = await fetch(`${API_BASE_URL}/api${path}`, {
     headers: { 'Content-Type': 'application/json' },
     ...options,
     body: options.body ? JSON.stringify(options.body) : undefined,
