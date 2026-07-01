@@ -94,7 +94,7 @@ export async function renderProducts(container) {
     brands.forEach(b => { const o = document.createElement('option'); o.value = b; o.textContent = b; brandSel.appendChild(o); });
     const catSel = wrapper.querySelector('#filter-category');
     categories.forEach(c => { const o = document.createElement('option'); o.value = c; o.textContent = c.charAt(0).toUpperCase()+c.slice(1); catSel.appendChild(o); });
-  } catch(e) {}
+  } catch(e) { /* filters degrade gracefully */ }
 
   let showFavsOnly = false;
 
@@ -104,6 +104,14 @@ export async function renderProducts(container) {
     const category = wrapper.querySelector('#filter-category').value;
     const skinType = wrapper.querySelector('#filter-skin').value;
     const sortBy = wrapper.querySelector('#filter-sort').value;
+
+    wrapper.querySelector('#product-count').textContent = 'Loading products…';
+    wrapper.querySelector('#product-grid').innerHTML = `
+      <div class="col-span-full text-center py-16 text-gray-400">
+        <div class="text-5xl mb-4">⏳</div>
+        <p class="font-semibold">Connecting to server…</p>
+        <p class="text-xs mt-2">Render's free tier may take up to 60s to wake up. Hang tight!</p>
+      </div>`;
 
     try {
       let products = await api(`/products?query=${encodeURIComponent(search)}&brand=${brand}&category=${category}&skin_type=${skinType}&sort_by=${sortBy}`);
@@ -126,7 +134,13 @@ export async function renderProducts(container) {
         grid.appendChild(card);
       });
     } catch(e) {
-      wrapper.querySelector('#product-grid').innerHTML = `<div class="col-span-full text-center py-16 text-gray-400"><div class="text-5xl mb-4">⚠️</div><p>Could not load products. Is the backend running?</p><p class="text-xs mt-2">Run: cd backend && uvicorn main:app --reload</p></div>`;
+      wrapper.querySelector('#product-count').textContent = 'Could not load products';
+      wrapper.querySelector('#product-grid').innerHTML = `
+        <div class="col-span-full text-center py-16 text-gray-400">
+          <div class="text-5xl mb-4">⚠️</div>
+          <p class="font-semibold">Backend is unreachable</p>
+          <p class="text-xs mt-2">The server may still be starting. Please refresh the page in 30 seconds.</p>
+        </div>`;
     }
   }
 

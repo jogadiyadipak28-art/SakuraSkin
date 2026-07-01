@@ -67,13 +67,34 @@ export function showToast(message) {
 // In local dev, leave VITE_API_BASE_URL empty so Vite's proxy handles /api calls.
 export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'https://sakuraskin-api.onrender.com';
 
-export async function api(path, options = {}) {
-  const res = await fetch(`${API_BASE_URL}/api${path}`, {
-    headers: { 'Content-Type': 'application/json' },
-    ...options,
-    body: options.body ? JSON.stringify(options.body) : undefined,
-  });
-  return res.json();
+// Render free tier cold-starts can take up to 60s. We retry once after a timeout.
+const API_TIMEOUT_MS = 15000; // 15s per attempt
+const API_MAX_RETRIES = 3;
+
+export async function api(path, options = {}, _attempt = 1) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), API_TIMEOUT_MS);
+
+  try {
+    const res = await fetch(`${API_BASE_URL}/api${path}`, {
+      headers: { 'Content-Type': 'application/json' },
+      ...options,
+      body: options.body ? JSON.stringify(options.body) : undefined,
+      signal: controller.signal,
+    });
+    clearTimeout(timer);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return res.json();
+  } catch (err) {
+    clearTimeout(timer);
+    if (_attempt < API_MAX_RETRIES) {
+      // Show a toast only on the first retry so user knows server is waking up
+      if (_attempt === 1) showToast('⏳ Waking up the server… please wait a moment');
+      await new Promise(r => setTimeout(r, 3000 * _attempt));
+      return api(path, options, _attempt + 1);
+    }
+    throw err;
+  }
 }
 
 // ─── Router ──────────────────────────────────────────────
@@ -122,4 +143,11 @@ window.addEventListener('hashchange', navigate);
 document.addEventListener('DOMContentLoaded', () => {
   if (state.darkMode) document.body.classList.add('dark-mode');
   navigate();
+
+  // Ping the backend immediately on load so Render's free-tier instance
+  // starts warming up before the user clicks anything.
+  if (API_BASE_URL) {
+    fetch(`${API_BASE_URL}/api/health`, { signal: AbortSignal.timeout(60000) })
+      .catch(() => {/* silent — retry logic in api() handles real errors */});
+  }
 });
