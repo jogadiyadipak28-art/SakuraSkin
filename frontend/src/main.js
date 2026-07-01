@@ -62,8 +62,10 @@ export function showToast(message) {
 }
 
 // ─── API Helper ──────────────────────────────────────────
-// Update this URL to your Render backend URL once it's deployed!
-export const API_BASE_URL = window.location.hostname === 'localhost' ? '' : 'https://sakuraskin-api.onrender.com';
+// VITE_API_BASE_URL env var is set in Vercel dashboard (or .env.local for dev).
+// Falls back to the Render URL if the env var is not set.
+// In local dev, leave VITE_API_BASE_URL empty so Vite's proxy handles /api calls.
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'https://sakuraskin-api.onrender.com';
 
 export async function api(path, options = {}) {
   const res = await fetch(`${API_BASE_URL}/api${path}`, {

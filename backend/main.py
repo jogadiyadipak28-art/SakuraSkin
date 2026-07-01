@@ -1,5 +1,7 @@
 """SakuraSkin API — Multi-Agent Skincare Recommender System."""
 
+import os
+
 from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -17,10 +19,19 @@ from agents.routine_agent import build_routine
 
 app = FastAPI(title="SakuraSkin API", version="1.0.0")
 
+ALLOWED_ORIGINS = os.getenv(
+    "ALLOWED_ORIGINS",
+    "http://localhost:5173,http://localhost:4173",
+).split(",")
+# Allow all origins when the wildcard "*" is explicitly configured, otherwise
+# use the explicit list (required when credentials are NOT sent, which is the
+# case for this app – no cookies/auth headers are used).
+_allow_all = ALLOWED_ORIGINS == ["*"]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
+    allow_origins=["*"] if _allow_all else ALLOWED_ORIGINS,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
